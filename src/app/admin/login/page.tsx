@@ -15,6 +15,7 @@ export default function AdminLogin() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault(); setLoading(true); setError('')
+    if (!auth) { setError('Firebase is not configured. Please add your .env.local file.'); setLoading(false); return }
     try {
       await signInWithEmailAndPassword(auth, email, password)
       router.push('/admin')

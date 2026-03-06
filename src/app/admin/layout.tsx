@@ -23,6 +23,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     if (pathname === '/admin/login') { setLoading(false); return }
+    if (!auth) { router.push('/admin/login'); return }
     const unsub = onAuthStateChanged(auth, (user) => {
       if (!user) router.push('/admin/login')
       else setLoading(false)
@@ -56,7 +57,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
         <div className="p-4 border-t border-white/5">
-          <button onClick={() => { signOut(auth); router.push('/admin/login') }}
+          <button onClick={() => { if (auth) signOut(auth); router.push('/admin/login') }}
             className="flex items-center gap-3 px-4 py-3 font-body text-sm text-white/40 hover:text-white w-full transition-colors">
             <FiLogOut size={16} /> Sign Out
           </button>
