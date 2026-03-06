@@ -3,11 +3,11 @@ import {
   setDoc, addDoc, updateDoc, deleteDoc, serverTimestamp,
 } from 'firebase/firestore'
 import { db as _db } from './firebase'
+import type { SalonInfo, Service, StaffMember, GalleryImage, Testimonial } from '@/types'
 
 // Fall back gracefully if Firebase is not configured
 const db = _db!
 const isReady = () => !!_db
-import type { SalonInfo, Service, StaffMember, GalleryImage, Testimonial } from '@/types'
 
 // ─── Salon Info ───────────────────────────────────────────────────
 
