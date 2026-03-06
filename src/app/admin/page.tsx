@@ -166,7 +166,7 @@ export default function AdminDashboard() {
             {[{ label: 'Salon Name', key: 'name' }, { label: 'Tagline', key: 'tagline' }, { label: 'Phone', key: 'phone' }, { label: 'WhatsApp (numbers only)', key: 'whatsapp' }, { label: 'Email', key: 'email' }].map((f) => (
               <div key={f.key}>
                 <label className="block font-body text-xs text-muted tracking-wider uppercase mb-1.5">{f.label}</label>
-                <input value={(salon as Record<string, string>)[f.key]} onChange={(e) => setSalon({ ...salon, [f.key]: e.target.value })} className="input-field" />
+                <input value={(salon as unknown as Record<string, string>)[f.key]} onChange={(e) => setSalon({ ...salon, [f.key]: e.target.value })} className="input-field" />
               </div>
             ))}
             <div className="md:col-span-2">
