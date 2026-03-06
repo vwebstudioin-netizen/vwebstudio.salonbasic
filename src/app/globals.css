@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply font-body text-dark bg-white antialiased; }
+  h1, h2, h3, h4, h5 { @apply font-display; }
+}
+
+@layer components {
+  /* Layout */
+  .section { @apply py-20 md:py-28; }
+  .section-cream { @apply py-20 md:py-28 bg-cream; }
+  .section-dark { @apply py-20 md:py-28 bg-dark; }
+  .container-custom { @apply max-w-6xl mx-auto px-5 md:px-8; }
+
+  /* Typography */
+  .section-label {
+    @apply inline-block font-body text-accent text-xs font-semibold tracking-[4px] uppercase mb-4;
+  }
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl text-dark font-normal leading-tight;
+  }
+  .section-subtitle {
+    @apply font-body text-muted text-lg leading-relaxed;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-dark text-white font-body font-medium text-sm
+    tracking-wider uppercase hover:bg-accent hover:text-dark transition-all duration-300;
+  }
+  .btn-accent {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-dark font-body font-medium text-sm
+    tracking-wider uppercase hover:bg-accent-dark hover:text-white transition-all duration-300;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border border-dark text-dark font-body font-medium text-sm
+    tracking-wider uppercase hover:bg-dark hover:text-white transition-all duration-300;
+  }
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border border-white text-white font-body font-medium text-sm
+    tracking-wider uppercase hover:bg-white hover:text-dark transition-all duration-300;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white border border-gray-100 hover:shadow-lg transition-all duration-300;
+  }
+  .admin-card { @apply bg-white border border-gray-100 p-6 rounded-2xl; }
+
+  /* Service badges */
+  .badge-gender {
+    @apply inline-block font-body text-xs font-medium px-2.5 py-1 rounded-full tracking-wide;
+  }
+  .badge-male { @apply badge-gender bg-blue-50 text-blue-700; }
+  .badge-female { @apply badge-gender bg-pink-50 text-pink-700; }
+  .badge-unisex { @apply badge-gender bg-purple-50 text-purple-700; }
+  .badge-category {
+    @apply inline-block font-body text-xs font-semibold px-3 py-1 bg-accent-50 text-accent-dark tracking-wider uppercase;
+  }
+
+  /* Forms */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 font-body text-sm text-dark bg-white
+    focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-200;
+  }
+
+  /* Divider */
+  .gold-divider {
+    @apply w-12 h-px bg-accent mx-auto my-5;
+  }
+}
