@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import type { StaffMember } from '@/types'
 
 export default function StaffSection({ staff }: { staff: StaffMember[] }) {
@@ -33,8 +32,9 @@ export default function StaffSection({ staff }: { staff: StaffMember[] }) {
               className="group text-center">
               {/* Photo */}
               <div className="relative w-44 h-44 mx-auto mb-5 overflow-hidden rounded-full border-2 border-white/10 group-hover:border-accent transition-colors duration-300">
-                {member.photo && member.photo.startsWith('http') ? (
-                  <Image src={member.photo} alt={member.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                {member.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={member.photo} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="w-full h-full bg-white/5 flex items-center justify-center">
                     <span className="font-display text-4xl text-accent/40 font-normal">{member.name[0]}</span>

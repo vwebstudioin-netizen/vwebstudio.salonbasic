@@ -22,9 +22,12 @@ export default function AboutSection({ salon }: { salon: SalonInfo }) {
             viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="relative">
             <div className="aspect-[4/5] bg-dark overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-dark via-dark to-accent/20 flex items-center justify-center">
-                <span className="font-display text-7xl text-accent/10">✂</span>
-              </div>
+              <img
+                src="/images/about.jpg"
+                alt="Our Stylists at Work"
+                className="w-full h-full object-cover"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+              />
             </div>
             {/* Floating stat card */}
             <div className="absolute -bottom-6 -right-6 bg-accent p-6 text-center shadow-xl">

@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import type { GalleryImage } from '@/types'
 
 const FILTERS: { key: string; label: string }[] = [
@@ -12,12 +11,12 @@ const FILTERS: { key: string; label: string }[] = [
 ]
 
 const PLACEHOLDER_GALLERY: GalleryImage[] = [
-  { id: '1', url: '', caption: 'Balayage Transformation', type: 'before-after', category: 'Color', sortOrder: 1 },
-  { id: '2', url: '', caption: 'Precision Cut', type: 'work', category: 'Hair', sortOrder: 2 },
-  { id: '3', url: '', caption: 'Keratin Smoothening', type: 'work', category: 'Treatment', sortOrder: 3 },
-  { id: '4', url: '', caption: 'Beard Styling', type: 'work', category: 'Beard', sortOrder: 4 },
-  { id: '5', url: '', caption: 'Hair Color Makeover', type: 'before-after', category: 'Color', sortOrder: 5 },
-  { id: '6', url: '', caption: 'The Studio Interior', type: 'salon', category: 'General', sortOrder: 6 },
+  { id: '1', url: '/images/gallery/gallery-1.jpg', caption: 'Balayage Transformation', type: 'before-after', category: 'Color', sortOrder: 1 },
+  { id: '2', url: '/images/gallery/gallery-2.jpg', caption: 'Precision Cut', type: 'work', category: 'Hair', sortOrder: 2 },
+  { id: '3', url: '/images/gallery/gallery-3.jpg', caption: 'Keratin Smoothening', type: 'work', category: 'Treatment', sortOrder: 3 },
+  { id: '4', url: '/images/gallery/gallery-4.jpg', caption: 'Beard Styling', type: 'work', category: 'Beard', sortOrder: 4 },
+  { id: '5', url: '/images/gallery/gallery-5.jpg', caption: 'Hair Color Makeover', type: 'before-after', category: 'Color', sortOrder: 5 },
+  { id: '6', url: '/images/gallery/gallery-6.jpg', caption: 'The Studio Interior', type: 'salon', category: 'General', sortOrder: 6 },
 ]
 
 export default function GallerySection({ images }: { images: GalleryImage[] }) {
@@ -67,8 +66,9 @@ export default function GallerySection({ images }: { images: GalleryImage[] }) {
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
               viewport={{ once: true }} transition={{ delay: i * 0.06 }}
               className="relative aspect-square bg-gray-50 overflow-hidden group">
-              {image.url && image.url.startsWith('http') ? (
-                <Image src={image.url} alt={image.caption} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              {image.url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={image.url} alt={image.caption} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-accent-50 to-cream flex flex-col items-center justify-center gap-2">
                   <span className="font-body text-accent/40 text-xs tracking-widest uppercase">{image.type}</span>
